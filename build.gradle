@@ -18,9 +18,17 @@ repositories {
 }
 
 dependencies {
+	// Web support
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+
+	// The CORRECT test starter (includes MockMvc, JUnit, Mockito, etc.)
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// This is the specific Gemini integration for LangChain4j
+	implementation "dev.langchain4j:langchain4j-google-ai-gemini:0.35.0"
+	// This is the core Spring Boot support for LangChain4j
+	implementation "dev.langchain4j:langchain4j-spring-boot-starter:0.35.0"
 }
 
 tasks.named('test') {
