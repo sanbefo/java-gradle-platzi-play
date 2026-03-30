@@ -20,7 +20,14 @@ repositories {
 dependencies {
 	// Web support
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.projectlombok:lombok:1.18.22'
+	implementation 'org.projectlombok:lombok:1.18.22'
 
+	// Lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 	// The CORRECT test starter (includes MockMvc, JUnit, Mockito, etc.)
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
@@ -29,6 +36,11 @@ dependencies {
 	implementation "dev.langchain4j:langchain4j-google-ai-gemini:0.35.0"
 	// This is the core Spring Boot support for LangChain4j
 	implementation "dev.langchain4j:langchain4j-spring-boot-starter:0.35.0"
+
+	// JPA, Docker and PostgreSQL dependencies
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+	runtimeOnly 'org.postgresql:postgresql'
 }
 
 tasks.named('test') {
