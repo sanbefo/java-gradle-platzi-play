@@ -3,6 +3,7 @@ package com.platzi.play.domain.service;
 import com.platzi.play.domain.dto.MovieDto;
 import com.platzi.play.domain.dto.UpdateMovieDto;
 import com.platzi.play.domain.repository.MovieRepository;
+import dev.langchain4j.agent.tool.Tool;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ public class MovieService {
         this.movieRepository = movieRepository;
     }
 
+    @Tool("look for all movies on the platform")
     public List<MovieDto> getAll() {
         return this.movieRepository.getAll();
     }
