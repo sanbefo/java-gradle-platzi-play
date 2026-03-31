@@ -84,22 +84,3 @@ http://localhost:8080/platzi-play/api
 | PUT       | `/movies/`        | Creates a new movie                 |
 | DELETE    | `/movies/{id}`    | Deletes a specific movie            |
 | GET       | `/movies/suggest` | Suggests movies depending on a message |
-
-```
-jdbc:postgresql://postgres:5432/java_platzi_play_db
-```
-
-## ❌ Relation "movies" does not exist
-
-This happens if data.sql runs before the tables are created. Ensure this line is in your properties:
-```
-spring.jpa.defer-datasource-initialization=true
-```
-
-## ❌ Port 8080 already in use
-
-Kill the process using the port (macOS/Linux):
-```
-lsof -i :8080
-kill -9 <PID_NUMBER>
-```
